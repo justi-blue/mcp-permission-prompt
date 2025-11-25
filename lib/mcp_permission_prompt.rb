@@ -37,7 +37,7 @@ McpPermissionPrompt.loader
 
 # Auto-load adapters based on available gems
 begin
-  require "mcp"
+  require "model_context_protocol"
   require_relative "mcp_permission_prompt/adapters/official_sdk"
 rescue LoadError
 end
