@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/mcp/permission/prompt/version"
+require_relative "lib/mcp_permission_prompt/version"
 
 Gem::Specification.new do |spec|
   spec.name = "mcp-permission-prompt"
-  spec.version = Mcp::Permission::Prompt::VERSION
+  spec.version = McpPermissionPrompt::VERSION
   spec.authors = ["Justyna"]
   spec.email = ["justine84@gmail.com"]
 
