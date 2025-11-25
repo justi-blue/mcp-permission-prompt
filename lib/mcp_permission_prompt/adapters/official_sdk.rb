@@ -28,7 +28,13 @@ module McpPermissionPrompt
       )
 
       def self.call(tool_name:, input:, server_context: nil)
-        decision = McpPermissionPrompt.evaluate(tool_name, symbolize_keys(input))
+        symbolized_input = symbolize_keys(input)
+        decision = McpPermissionPrompt.evaluate(tool_name, symbolized_input)
+
+        # Trigger decision callback if configured
+        callback = McpPermissionPrompt.configuration.callbacks[:decision]
+        callback&.call(tool_name, symbolized_input, decision)
+
         response_json = McpPermissionPrompt.build_response(decision, input)
 
         {
